@@ -1,0 +1,31 @@
+version: '3.3'
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+  sproof-api-client:
+    container_name: sproof-api-client
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh start.sh
+    volumes:
+      - ./data:/usr/src/sproof-api-client/data
+      - ./src:/usr/src/sproof-api-client/src
+      - ./logs:/usr/src/sproof-api-client/logs
+      - ./start.sh:/usr/src/sproof-api-client/start.sh
+
+    labels:
+      - traefik.backend=sproof-api-client
+      - traefik.frontend.rule=Host:verify.sproof.io
+      - traefik.docker.network=web
+      - traefik.port=6001
+
+    networks:
+      - internal
+      - web

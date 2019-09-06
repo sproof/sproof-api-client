@@ -1,0 +1,41 @@
+export default {
+  web: {
+    verify: {
+      placeYourFile: 'Place your file here...',
+      verifyBtnHeader: 'Verify a document',
+      verifyBtnText: 'Choose a file...',
+      documentRegisteredHeader: 'Document registered',
+      registeredAt: 'Registration Time',
+      revokedAt: 'Revocation Time',
+      documentNotRegistered: 'Document is not registered',
+      back: 'Back',
+      name: 'Name of the document',
+      tryAnother: 'Choose another document...',
+      networkError: 'Network error',
+      networkErrorText: 'sproof client is not available, please try again later...',
+      validDocument : 'Document is valid',
+      revokedDocument : 'Document was revoked',
+      revokedProfile : 'Issuer of document is revoked',
+      details: 'Details',
+      timestamp: 'Timestamp',
+      documentHash: 'Document Hash',
+      documentId: 'Document ID',
+      locationHash: 'Document Link',
+      issuerId: 'Issuer ID',
+      ipfsHash: 'IPFS Hash',
+      blocknumber: 'Blocknumber',
+      txHash: 'TransactionHash',
+      chain: 'Chain',
+      issuedBy: 'Issued by',
+      multipleHeader: 'This document is registered by several issuers',
+      status: 'Status of document',
+      registered: 'Document is registered',
+      notRegistered : 'Document is not registered',
+      registeredText_1: "Your document, with the name \'%{name}\' is registered in the sproof network by %{count} profile.",
+      registeredText: 'Your document, with the name \'%{name}\' is registered in the sproof network by %{count} profiles.',
+      notRegisteredText : 'Your document, with the name \'%{name}\' is not registered in the sproof network. It could be that your document is in pending mode. Try it again later.',
+      issuedBy : "Issued by",
+      revokedBy : "Revoked by"
+    }
+  }
+}

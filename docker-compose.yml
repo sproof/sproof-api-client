@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  sproof-api-client:
+    container_name: sproof-api-client
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    command: sh ./scripts/start.sh
+    command: sh ./scripts/buildUIAndStart.sh
+    volumes:
+      - ./data:/usr/src/sproof-api-client/data
+      - ./src:/usr/src/sproof-api-client/src
+      - ./logs:/usr/src/sproof-api-client/logs
+      - ./dist:/usr/src/sproof-api-client/dist
+
+      - ./scripts:/usr/src/sproof-api-client/scripts
+
+    ports:
+      - 6001:6001

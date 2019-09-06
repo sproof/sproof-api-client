@@ -1,0 +1,16 @@
+.git
+.idea
+.gitignore
+README.md
+Dockerfile
+
+**/node_modules/*
+**/node_modules
+**node_modules
+**build
+**package-lock.json
+# To prevent storing dev/temporary container data
+*.csv
+/tmp/*
+
+./dist

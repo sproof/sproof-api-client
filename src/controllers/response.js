@@ -1,0 +1,1 @@
+module.exports = (data) => {return {result: data, error: null}};
