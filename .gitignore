@@ -1,0 +1,13 @@
+node_modules
+build
+./src/web/build
+./src/web/node_modules
+logs
+./logs
+data/config.js
+data/events.json
+data/de.js
+data/en.js
+data/sproofConfig.js
+data/theme.js
+data/accessCode.js
