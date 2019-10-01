@@ -1,0 +1,30 @@
+version: '3.3'
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+  fh-sproof-api-client:
+    container_name: fh-sproof-api-client
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh buildUIAndStart.sh
+    volumes:
+      - ./data:/usr/src/sproof-api-client/data
+      - ./src:/usr/src/sproof-api-client/src
+      - ./logs:/usr/src/sproof-api-client/logs
+      - ./start.sh:/usr/src/sproof-api-client/start.sh
+
+    labels:
+      - traefik.backend=fh-sproof-api-client
+      - traefik.frontend.rule=Host:fhsalzburg.sproof.io
+      - traefik.docker.network=web
+      - traefik.port=6001
+
+    networks:
+      - web
