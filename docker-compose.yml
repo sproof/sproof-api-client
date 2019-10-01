@@ -14,7 +14,6 @@ services:
       - ./src:/usr/src/sproof-api-client/src
       - ./logs:/usr/src/sproof-api-client/logs
       - ./dist:/usr/src/sproof-api-client/dist
-
       - ./scripts:/usr/src/sproof-api-client/scripts
 
     ports:

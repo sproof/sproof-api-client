@@ -13,12 +13,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh start.sh
+#   command: sh ./scripts/start.sh
+    command: sh ./scripts/buildUIAndStart.sh
     volumes:
       - ./data:/usr/src/sproof-api-client/data
       - ./src:/usr/src/sproof-api-client/src
       - ./logs:/usr/src/sproof-api-client/logs
-      - ./start.sh:/usr/src/sproof-api-client/start.sh
+      - ./dist:/usr/src/sproof-api-client/dist
+      - ./scripts:/usr/src/sproof-api-client/scripts
 
     labels:
       - traefik.backend=sproof-api-client
