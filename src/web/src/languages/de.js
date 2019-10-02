@@ -27,7 +27,15 @@ export default {
       chain: 'Chain',
       issuedBy: 'Ausgestellt von',
       multipleHeader: 'Dieses Dokument wurde von meheren Ausstellern eingetragen',
-      status: 'Status des Dokuments'
+      status: 'Status des Dokuments',
+      details: 'Details',
+      registered: 'Dokument ist registriert',
+      notRegistered : 'Dokument ist nicht registriert',
+      registeredText_1: "Ihr Dokument mit dem Namen \'%{name}\' ist von einem Profil im sproof Netzwerk registriert worden.",
+      registeredText: "Ihr Dokument mit dem Namen \'%{name}\' ist von %{count} Profilen im sproof Netzwerk registriert worden.",
+      notRegisteredText : "Ihr Dokument mit dem Namen \'%{name}\' ist nicht im sproof Netzwerk registriert.",
+      issuedBy : "Ausgestellt von",
+      revokedBy : "Widerufen von"
     },
   }
 }

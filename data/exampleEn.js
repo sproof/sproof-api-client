@@ -6,7 +6,7 @@ export default {
       verifyBtnText: 'Choose a file...',
       documentRegisteredHeader: 'Document registered',
       registeredAt: 'Registration Time',
-      revokedAt: 'Revokation Time',
+      revokedAt: 'Revocation Time',
       documentNotRegistered: 'Document is not registered',
       back: 'Back',
       name: 'Name of the document',
@@ -28,7 +28,14 @@ export default {
       chain: 'Chain',
       issuedBy: 'Issued by',
       multipleHeader: 'This document is registered by several issuers',
-      status: 'Status of document'
+      status: 'Status of document',
+      registered: 'Document is registered',
+      notRegistered : 'Document is not registered',
+      registeredText_1: "Your document, with the name \'%{name}\' is registered in the sproof network by %{count} profile.",
+      registeredText: 'Your document, with the name \'%{name}\' is registered in the sproof network by %{count} profiles.',
+      notRegisteredText : 'Your document, with the name \'%{name}\' is not registered in the sproof network. It could be that your document is in pending mode. Try it again later.',
+      issuedBy : "Issued by",
+      revokedBy : "Revoked by"
     }
   }
 }
