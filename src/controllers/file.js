@@ -42,6 +42,8 @@ exports.register = async (req, res, next) => {
 
   sproof.registerDocumentBulk(reg);
 
+  //TODOVadd event to sproof
+
   res.json(response(sproof.getRegistrationInfos(reg)));
 
   Master().storeEvents();

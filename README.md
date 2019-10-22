@@ -4,18 +4,21 @@ This module provides an API for registering, revoking and verifying data with an
 
 ## Start
 
-### 1. Get the sproof-client-api
+### 1. Create a premium account
+
+Create a account on https://app.sproof.io.
+
+### 2. Get the sproof-client-api
 
 ``git clone https://gitlab.com/sproof/sproof-api-client.git`` 
 
-### 2. Create config and theme
+### 3. Create config and theme
 
 Copy the ```exampleTheme.js``` and ```exampleConfig.js``` to ```theme.js``` and ```config.js```. 
 
-### 3. Create a premium account
+Add your sproof code to ``data/config.js`` You can download your sproof code in the settings page.
 
-Create a premium account on https://app.sproof.io and copy your sproof code to ``data/config.js``
-You can download your sproof code in the settings page.
+For production change the chainId from ``3`` to ``1``. Please note, that the chainId 1 is the mainnet. Before you can use sproof on the mainnet you will need to choose a plan on the web app.  
 
 ### 4. Modify the verifier theme 
 

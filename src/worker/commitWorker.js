@@ -55,6 +55,9 @@ class CommitWorker {
   commit() {
     this.lastCommitTime = (new Date()/1000);
 
+    //read events from premium if activated
+
+
     if(_.isEmpty(this.master.sproof.events))
       return console.info('Nothing to commit...');
     this.master.sproof.commitPremium((err,res) => {
@@ -67,6 +70,10 @@ class CommitWorker {
       }
     });
   }
+
+  //commit events premium
+
+
 
   setExternalCommit(timestamp) {
     this.lastCommitTime = timestamp.toFixed(0);
