@@ -52,7 +52,7 @@ to start this module. It will create a API and host the verifier theme on port 6
 The access code is a token, which secures your API endpoint. It will be generated and stored under ```data/accessCode.json``` and logged. This accessCode is necessery to send external API requests to the sproof client. 
 
 
-Visit https://sproof-docs.readthedocs.io/en/latest/sproof-api-client.html for the documentation for the API endpoint.
+Visit https://sproof-docs.readthedocs.io/en/latest/docker/docker-api.html for the documentation for the API endpoint.
 
 
 
