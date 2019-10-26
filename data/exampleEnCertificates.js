@@ -34,7 +34,10 @@ export default {
       registeredText_1: "Your certificate, with the name \'%{name}\' is registered in the sproof network by %{count} profile.",
       registeredText: 'Your certificate, with the name \'%{name}\' is registered in the sproof network by %{count} profiles.',
       notRegisteredText : 'Your certificate, with the name \'%{name}\' is not registered in the sproof network. It could be that your certificate is in pending mode. Try it again later.',
-      revokedBy : "Revoked by"
+      revokedBy : "Revoked by",
+      documentPendingMode: 'Pending',
+      pendingAdditionalText : 'Your certificate is known by the sproof network, but not yet registered on the blockchain. Please try it later again. ',
+      scheduleNextCommit: 'You certificate will be registered  '
     }
   }
 }

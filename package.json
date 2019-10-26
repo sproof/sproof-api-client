@@ -25,7 +25,7 @@
     "node-fetch": "^2.6.0",
     "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
-    "js-sproof-client": "1.0.36",
+    "js-sproof-client": "1.0.37",
     "sync": "^0.2.5",
     "throw.js": "^3.0.1",
     "winston": "^3.2.1",
