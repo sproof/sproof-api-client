@@ -11,7 +11,6 @@ export default function MyAvatar(props) {
   if (props.loading)
     return <CircularProgress color='primary'/>
 
-  console.log(props)
 
   if (props.defaultIcon)
     return <Avatar {...props} > <Icon name={'user'}/> </Avatar>

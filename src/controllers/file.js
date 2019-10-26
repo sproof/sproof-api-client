@@ -40,14 +40,18 @@ exports.register = async (req, res, next) => {
 
   let reg = new Registration({documentHash, locationHash, name});
 
-  sproof.registerDocumentBulk(reg);
+  let event = sproof.registerDocument(reg);
 
-  //TODOVadd event to sproof
 
-  res.json(response(sproof.getRegistrationInfos(reg)));
-
-  Master().storeEvents();
-
+  if (Master().config.sproof.sproofPremium){
+    sproof.user.addEvent(event, (err, result) => {
+      if (result) res.json(response(sproof.getRegistrationInfos(reg)));
+      else next(new errors.CustomError('Server Error', err.message, err.status))
+    })
+  } else {
+    Master().storeEvents();
+    res.json(response(sproof.getRegistrationInfos(reg)));
+  }
 };
 
 exports.revoke = async (req, res, next) => {
@@ -63,10 +67,17 @@ exports.revoke = async (req, res, next) => {
 
   let documentHash = sproof.getHash(file);
 
-  sproof.revokeDocument(documentHash, reason);
-  res.json(response("Revocation stored."));
-  Master().storeEvents();
+  let event = sproof.revokeDocument(documentHash, reason);
 
+  if (Master().config.sproof.sproofPremium){
+    sproof.user.addEvent(event, (err, result) => {
+      if (result) res.json(response(result));
+      else next(new errors.CustomError('Server Error', err.message, err.status))
+    });
+  }else {
+    Master().storeEvents();
+    res.json(response("Revocation stored."));
+  }
 }
 
 exports.verify = async (req, res, next) => {

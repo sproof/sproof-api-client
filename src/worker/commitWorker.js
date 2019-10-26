@@ -52,21 +52,53 @@ class CommitWorker {
     return this.lastCommitTime;
   }
 
-  commit() {
-    this.lastCommitTime = (new Date()/1000);
+  getUser(){
+    return new Promise((resolve, reject) => {
+      this.master.sproof.user.getUser((err, res) => {
+        if (err) reject(err);
+        else resolve(res);
+      })
+    });
 
-    //read events from premium if activated
+  }
+
+  async commit(callback) {
+    let sproof = this.master.sproof;
+
+    this.setCommitTime();
+
+    let onlineEvents = [...sproof.events];
+
+    try {
+      if (this.master.config.sproof.sproofPremium) {
+        let user = await this.getUser();
+        onlineEvents = user.events;
+      }
+    }catch (err) {
+      if (callback) callback(err)
+      return
+    }
+
+    this.master.sproof.events = this.master.sproof.prepareEvents(onlineEvents);
 
 
-    if(_.isEmpty(this.master.sproof.events))
-      return console.info('Nothing to commit...');
+    if(_.isEmpty(this.master.sproof.events)) {
+      console.info('Nothing to commit...');
+      if (callback) callback({message: 'Nothing to commit', status: '3'})
+      return
+    }
     this.master.sproof.commitPremium((err,res) => {
       console.info(`${this.master.sproof.events.length} events committed...`);
-      if (err)
+      if (err) {
         this.lastCommitError = err;
+        if (callback) callback(err)
+      }
       else {
         this.lastCommitError = null;
+
         this.master.storeEvents();
+
+        if (callback) callback(null, res);
       }
     });
   }
@@ -75,7 +107,8 @@ class CommitWorker {
 
 
 
-  setExternalCommit(timestamp) {
+  setCommitTime(timestamp = new Date()/1000) {
+
     this.lastCommitTime = timestamp.toFixed(0);
   }
 

@@ -12,6 +12,7 @@ let config = {
   sproof: {
     uri: 'https://api.sproof.io/',
     // verificationUri: '{YOUR OWN SPROOF CORE}',
+    sproofPremium: true,
     credentials: {
       sproofCode: 'YOUR SPROOF CODE'
     },

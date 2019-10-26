@@ -5,6 +5,7 @@ const {Sproof} = require ('js-sproof-client');
 const store = require('./utils/db/store');
 
 const CommitWorker = require('./worker/commitWorker');
+const KeepAliveWorker = require('./worker/keepAlive');
 
 class Master {
     constructor(config){
@@ -20,6 +21,9 @@ class Master {
       this.serverPrivate = new ServerPrivate(this, config);
 
       this.commitWorker = new CommitWorker(this, config.commit);
+
+      if (config.sproof.sproofPremium)
+        new KeepAliveWorker(this)
 
     }
 

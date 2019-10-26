@@ -35,7 +35,10 @@ export default {
       registeredText: "Ihr Dokument mit dem Namen \'%{name}\' ist von %{count} Profilen im sproof Netzwerk registriert worden.",
       notRegisteredText : "Ihr Dokument mit dem Namen \'%{name}\' ist nicht im sproof Netzwerk registriert.",
       issuedBy : "Ausgestellt von",
-      revokedBy : "Widerufen von"
+      revokedBy : "Widerufen von",
+      documentPendingMode: 'In Bearbeitung',
+      pendingAdditionalText : 'Ihr Dokment ist dem sproof Netzwerk bereits bekannt, aber noch nicht digital unterschrieben. Bitte prüfen Sie ihr Dokument später nocheinmal.',
+      scheduleNextCommit: 'Ihr Dokument wird digital unterschieben: '
     },
   }
 }

@@ -18,7 +18,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.5",
     "file-loader": "^4.2.0",
-    "http-proxy": "^1.17.0",
+    "http-proxy": "^1.18.0",
     "lodash": "^4.17.15",
     "moment": "2.24.0",
     "morgan": "^1.9.1",

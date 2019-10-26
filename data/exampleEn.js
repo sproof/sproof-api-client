@@ -35,7 +35,10 @@ export default {
       registeredText: 'Your document, with the name \'%{name}\' is registered in the sproof network by %{count} profiles.',
       notRegisteredText : 'Your document, with the name \'%{name}\' is not registered in the sproof network. It could be that your document is in pending mode. Try it again later.',
       issuedBy : "Issued by",
-      revokedBy : "Revoked by"
+      revokedBy : "Revoked by",
+      documentPendingMode: 'Pending',
+      pendingAdditionalText : 'Your document is known by the sproof network, but not yet registered on the blockchain. Please try it later again. ',
+      scheduleNextCommit: 'You document will be registered  '
     }
   }
 }

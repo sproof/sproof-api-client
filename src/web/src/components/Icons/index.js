@@ -8,7 +8,6 @@ import {userSecret} from 'react-icons-kit/fa/userSecret'
 import {ic_arrow_back} from 'react-icons-kit/md/ic_arrow_back'
 import {ic_refresh} from 'react-icons-kit/md/ic_refresh'
 import {warning} from 'react-icons-kit/fa/warning'
-import {clockO} from 'react-icons-kit/fa/clockO'
 import {creditCardAlt} from 'react-icons-kit/fa/creditCardAlt'
 import {
   ban,
@@ -28,7 +27,7 @@ import {
   user,
   users,
 } from 'react-icons-kit/fa'
-import {documents, network} from 'react-icons-kit/entypo'
+import {network} from 'react-icons-kit/entypo'
 
 import {fileText} from 'react-icons-kit/fa/fileText'
 
@@ -53,12 +52,13 @@ import {ic_keyboard_arrow_up as up} from 'react-icons-kit/md/ic_keyboard_arrow_u
 import {ic_keyboard_arrow_down as down} from 'react-icons-kit/md/ic_keyboard_arrow_down'
 
 import {ic_mode_edit} from 'react-icons-kit/md/ic_mode_edit'
+import {clockO} from 'react-icons-kit/fa/clockO'
+
 import {exclamationTriangle} from 'react-icons-kit/fa/exclamationTriangle'
 import {externalLink} from 'react-icons-kit/fa/externalLink'
 import {withStyles} from "@material-ui/core/styles/index";
 import {frownO} from 'react-icons-kit/fa/frownO'
 import {lock} from 'react-icons-kit/fa/lock'
-import {listAlt} from 'react-icons-kit/fa/listAlt'
 
 const getIcon = (name) => {
   switch (name) {
@@ -120,6 +120,7 @@ const getIcon = (name) => {
     case 'back' : return ic_arrow_back;
     case 'reload' : return ic_refresh;
     case 'warning' : return warning;
+    case 'clock' : return clockO;
 
     default: console.log("Icon not found: " + name); return ban;
   }
@@ -137,7 +138,7 @@ const StyledBadge = withStyles((theme) => ({
 
 const getColor = (color) => {
   if (!color) return '#333333';
-  else if (color == 'error' || color == 'warning' || color == 'success' ){
+  else if (color === 'error' || color === 'warning' || color === 'success' ){
     return undefined;
   }
   else
@@ -158,8 +159,7 @@ const myIcon = (props) => {
 
 
   let color = getColor(props.color);
-  console.log(color);
-  console.log(props.color);
+
 
   return <Container {...props} >
     <Icon style={{color}} className={props.classes[props.color]} {...props} icon={getIcon(props.name)}/>
