@@ -20,7 +20,9 @@ class CommitWorker {
   }
 
   run(){
-    this.commit();
+    this.commit((err, res) => {
+      if (err) console.log(err);
+    });
     process.nextTick (() => this.startTimer());
   }
 
@@ -81,6 +83,8 @@ class CommitWorker {
 
     this.master.sproof.events = this.master.sproof.prepareEvents(onlineEvents);
 
+    let eventLength = this.master.sproof.events.length;
+
 
     if(_.isEmpty(this.master.sproof.events)) {
       console.info('Nothing to commit...');
@@ -88,7 +92,11 @@ class CommitWorker {
       return
     }
     this.master.sproof.commitPremium((err,res) => {
-      console.info(`${this.master.sproof.events.length} events committed...`);
+      if (res) {
+        console.info(`${eventLength} events committed...`);
+      }else{
+        console.error(err);
+      }
       if (err) {
         this.lastCommitError = err;
         if (callback) callback(err)
@@ -104,8 +112,6 @@ class CommitWorker {
   }
 
   //commit events premium
-
-
 
   setCommitTime(timestamp = new Date()/1000) {
 

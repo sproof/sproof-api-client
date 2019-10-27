@@ -37,7 +37,10 @@ export default {
       revokedBy : "Widerufen von",
       documentPendingMode: 'In Bearbeitung',
       pendingAdditionalText : 'Ihr Zeugnis ist dem sproof Netzwerk bereits bekannt, aber noch nicht digital unterschrieben. Bitte prüfen Sie ihr Zeugnis später nocheinmal.',
-      scheduleNextCommit: 'Ihr Zeugnis wird digital unterschieben: '
+      scheduleNextCommit: 'Ihr Zeugnis wird digital unterschieben: ',
+      existsByNotConfirmedHeader: 'Ihr Zeugnis ist registriert, aber nicht bestätigt.',
+      existsByNotConfirmedText: "Dieses Zeugnis wurde im sproof Netzwerk registriert. Der Inhaber dieser Website hat aber die Identität des Aussteller noch nicht bestätigt. Klicken Sie auf den Link um mehr informationen zu diesem Zeugnis zu erhalten.",
+      clickForMoreInformation: 'Mehr Informationen zu diesem Zeugnis.'
     },
   }
 }

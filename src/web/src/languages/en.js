@@ -37,7 +37,10 @@ export default {
       revokedBy : "Revoked by",
       documentPendingMode: 'Pending',
       pendingAdditionalText : 'Your document is known by the sproof network, but not yet registered on the blockchain. Please try it later again. ',
-      scheduleNextCommit: 'You document will be registered  '
+      scheduleNextCommit: 'Your document will be registered  ',
+      existsByNotConfirmedHeader: 'Document is registered, but not confirmed by this verifer.',
+      existsByNotConfirmedText: "This document is issued by a profile, which is not in the confirmation network of this verifier. Please click the link below for more information about this file.",
+      clickForMoreInformation: 'Click for more information'
     }
   }
 }

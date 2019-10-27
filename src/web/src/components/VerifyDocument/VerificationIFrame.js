@@ -40,6 +40,10 @@ const getHeaderText = (registrations) => {
 
 
 const getSecondaryHeaderText = (registrations, name) => {
+
+  // let headerText = status.valid ? I18n.t('web.explorer.registration.validDocument') : (
+  //   status.revoked ? I18n.t(`web.documents.revokeReason.${registration.revokedReason}`) :  I18n.t('web.explorer.registration.outdatedDocument')
+  // );
   return I18n.t(`web.verify.${isRegistered(registrations) ? 'registeredText' : 'notRegisteredText'}`, {name, count: registrations.length})
 }
 
@@ -53,41 +57,11 @@ const getSecondaryText = (r) => {
   else
     return `${I18n.t('web.verify.issuedBy')} ${r.profile ? r.profile.data.name : 'unknown'} ${moment.unix(r.registration.timestamp).fromNow()}`
 }
-//
-// const allValid = (registrations) =>  {
-//   let vs = registrations.map(r => {
-//     return getStatus(r.registration).valid
-//   });
-//   return !vs.includes(false)
-// };
-//
-// const allInvalid = (registrations) =>  {
-//   let vs = registrations.map(r => {
-//     return getStatus(r.registration).valid
-//   });
-//   return !vs.includes(true)
-// };
+
 
 const isRegistered = (registrations) => {
   return registrations.length > 0;
 }
-//
-// const getMainIcon = (registrations) => {
-//   return registrations.length === 0 ? 'sad' : 'registration'
-// }
-//
-// const getSecondaryIcon = (registrations) => {
-//   if (registrations.length === 0) return undefined;
-//   if (allValid(registrations)) return 'check';
-//   else if (allInvalid(registrations)) return 'close';
-//   else return 'question'
-// }
-//
-// const getSecondaryIconColor = (registrations) => {
-//   if (allValid(registrations)) return registrations;
-//   return 'error';
-// }
-
 
 
 class Upload extends Component{
@@ -145,6 +119,7 @@ class Upload extends Component{
 
 
   renderRegistration(registrations, onUploadClick) {
+
     let {classes } = this.props;
 
 
@@ -230,6 +205,38 @@ class Upload extends Component{
 
   }
 
+  renderExistsButNotConfirmed(documentHash,fileName, onUploadClick) {
+    let {classes} = this.props;
+    let additionalText, icon = 'sad';
+
+    let iconClass = classes.checkIconColor;
+
+    let header = I18n.t(`web.verify.existsByNotConfirmedHeader`)
+
+    additionalText = I18n.t('web.verify.existsByNotConfirmedText');
+
+    return <Grid
+      container
+      direction='column'
+      justify='center'
+      alignItems='center'
+      style={{maxWidth: '600px'}}
+      spacing={1}
+    >
+      <Grid item><Typography className={classes.header}> <Icon size={'60'} className={iconClass} name={icon}/></Typography></Grid>
+      <Grid item><Typography className={classes.header}>{header}</Typography></Grid>
+      <Grid item><Typography align={"justify"} className={classes.text}>{additionalText}</Typography></Grid>
+      <Grid item>
+        <a target='_blank' rel="noopener noreferrer" href={'https://app.sproof.io/#/view/documentHash/'+documentHash+'/'+fileName}>
+        <Typography align={"justify"} style={{textDecoration: "underline"}} className={classes.text}>{I18n.t('web.verify.clickForMoreInformation')}</Typography>
+        </a>
+      </Grid>
+      <Grid item> <Button  className={classes.iFrameButton}   color='primary' variant={'contained'} onClick={onUploadClick} >{I18n.t('web.verify.tryAnother')}</Button> </Grid>
+    </Grid>
+
+  }
+
+
   renderError(error, onUploadClick) {
     let {classes} = this.props;
     let additionalText, icon = 'sad';
@@ -270,11 +277,16 @@ class Upload extends Component{
 
 
     let pending = false;
+    let notConfirmed = false;
     let nextCommit = false;
 
     if (!(registrations instanceof Array) && registrations && registrations.pending){
       pending = registrations.pending;
       nextCommit = registrations.nextCommit;
+    }
+
+    if (!(registrations instanceof Array) && registrations && registrations.existsButNotConfirmed){
+      notConfirmed = registrations.existsButNotConfirmed;
     }
 
 
@@ -296,8 +308,9 @@ class Upload extends Component{
                   </div>
                 </div>}
                 {(!isLoading && !registrations && !error) && { ...this.renderStart(onClick) }}
-                {!isLoading && registrations && !pending && {...this.renderRegistration(registrations, onClick)}}
-                {!isLoading && registrations && pending && {...this.renderPending(nextCommit, onClick)}}
+                {!isLoading && registrations && !pending && !notConfirmed && {...this.renderRegistration(registrations, onClick)}}
+                {!isLoading && registrations && pending && !notConfirmed && {...this.renderPending(nextCommit, onClick)}}
+                {!isLoading && registrations && notConfirmed && !pending && {...this.renderExistsButNotConfirmed(this.state.documentHash, this.state.name, onClick)}}
 
                 {!isLoading && error && {...this.renderError(error, onClick)}}
               </Grid>

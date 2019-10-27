@@ -14,10 +14,12 @@ class VerifyIFrame extends Component{
     let locale = props.match.params.locale;
     props.setLocale(locale === 'de' ? 'de' : 'en')
     moment.locale(locale === 'de' ? 'de' : 'en')
+
+
   }
 
   render() {
-    return <VerificationWP className={this.props.classes.rootWordpress}/>
+    return <VerificationWP standalone={this.props.match.params.locale} className={this.props.classes.rootWordpress}/>
   }
 }
 
