@@ -3,8 +3,8 @@ let config = {
     port: 6001
   },
   commit: {
-    //time: '13:13',
-    interval: 10
+    time: '18:00',
+    //interval: 10
   },
 
   showOnlyConfirmedIssuers: true,
