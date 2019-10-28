@@ -15,6 +15,8 @@ RUN mkdir /usr/src/sproof-api-client/dist/
 
 COPY package.json ./package.json
 
+COPY src ./src
+
 # install npm packages
 RUN npm install
 
