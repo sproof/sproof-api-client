@@ -11,6 +11,7 @@ WORKDIR /usr/src/sproof-api-client
 RUN mkdir /usr/src/sproof-api-client/data/
 RUN mkdir /usr/src/sproof-api-client/logs/
 RUN mkdir /usr/src/sproof-api-client/dist/
+RUN mkdir /usr/src/sproof-api-client/src/
 
 
 COPY package.json ./package.json
