@@ -7,7 +7,7 @@ let config = {
     //interval: 10
   },
 
-  showOnlyConfirmedIssuers: true,
+  validateOnlyConfirmedIssuers: true,
 
   sproof: {
     uri: 'https://api.sproof.io/',

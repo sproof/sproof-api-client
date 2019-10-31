@@ -89,7 +89,7 @@ exports.verify = async (req, res, next) => {
   let documentHash = sproof.getHash(file);
 
   let verificationProfile = undefined;
-  if (Master().config.showOnlyConfirmedIssuers)
+  if (Master().config.validateOnlyConfirmedIssuers)
     verificationProfile = Master().sproof.config.credentials.address
 
   sproof.getValidation(documentHash, verificationProfile, (err, result) => {
@@ -103,7 +103,7 @@ exports.verifyHash = async (req, res, next) => {
   let documentHash = req.params.id;
 
   let verificationProfile = undefined;
-  if (Master().config.showOnlyConfirmedIssuers)
+  if (Master().config.validateOnlyConfirmedIssuers)
     verificationProfile = Master().sproof.config.credentials.address
 
   sproof.getValidation(documentHash, verificationProfile, (err, result) => {
