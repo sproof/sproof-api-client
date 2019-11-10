@@ -1,6 +1,6 @@
 # sproof API client
 
-This repository contains the docke-based sproof API client, which provides an API endpoint for registering, revoking and verifying data with an existing sproof account.
+This repository contains the docker-based sproof API client, which provides an API endpoint for registering, revoking and verifying data with an existing sproof account.
 
 ## For users (developers and integrators)
 
