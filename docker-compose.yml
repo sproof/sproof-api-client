@@ -16,4 +16,4 @@ services:
       - ./scripts:/usr/src/sproof-api-client/scripts
 
     ports:
-      - 80:6001
+      - 6001:6001
