@@ -1,12 +1,12 @@
 const constants = {
-  'SET_STYLE' : 'UI_SET_STYLE'
+  'SET_STYLE' : 'CONFIG_SET_STYLE'
 };
 
 const defaultState = {
 
 };
 
-export default function uiReducer(state = defaultState, action) {
+export default function configReducer(state = defaultState, action) {
   switch (action.type) {
     case constants.SET_STYLE: {
       return {

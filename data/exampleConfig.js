@@ -11,13 +11,12 @@ let config = {
 
   sproof: {
     uri: 'https://api.sproof.io/',
-    // verificationUri: '{YOUR OWN SPROOF CORE}',
     sproofPremium: true,
     credentials: {
       sproofCode: 'YOUR SPROOF CODE'
     },
 
-    chainId: '3',
+    chainId: '1',
     chain: 'ethereum',
     version: '0.42',
   },

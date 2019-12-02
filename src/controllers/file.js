@@ -83,6 +83,7 @@ exports.revoke = async (req, res, next) => {
 exports.verify = async (req, res, next) => {
   let sproof = Master().sproof;
   let file = getFileFromRequest(req);
+
   if (!file)
     return next(new errors.BadRequest('Invalid params, needs a Buffer with name file as form data input'));
 
@@ -91,6 +92,7 @@ exports.verify = async (req, res, next) => {
   let verificationProfile = undefined;
   if (Master().config.validateOnlyConfirmedIssuers)
     verificationProfile = Master().sproof.config.credentials.address
+
 
   sproof.getValidation(documentHash, verificationProfile, (err, result) => {
     if (result) res.json(response(result));
@@ -105,6 +107,12 @@ exports.verifyHash = async (req, res, next) => {
   let verificationProfile = undefined;
   if (Master().config.validateOnlyConfirmedIssuers)
     verificationProfile = Master().sproof.config.credentials.address
+
+  let verificationProfileOnParams = req.query.profile
+
+  if (verificationProfileOnParams)
+    verificationProfile = verificationProfileOnParams
+
 
   sproof.getValidation(documentHash, verificationProfile, (err, result) => {
     if (result) res.json(response(result));

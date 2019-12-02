@@ -94,7 +94,12 @@ class Upload extends Component{
       let sp = window.sp;
       let buffer = this.toBuffer(reader.result);
       let documentHash = sp.getHash(buffer);
-      axios.post(`${window.host}api/v1/file/verify/${documentHash}`, {}).then(res => {
+      let url = `${window.host}api/v1/file/verify/${documentHash}`
+
+      if (this.props.config.profile)
+        url = `${url}?profile=${this.props.config.profile}`
+
+      axios.post(url, {}).then(res => {
         this.setState({loading: false, documentHash, name: file.name, registrations : res.data.result});
       }).catch (err => {
         this.setState({loading: false, documentHash, name: file.name, error: {status: err.response ? err.response.status : "Network", message: err.message}});
@@ -337,6 +342,7 @@ class Upload extends Component{
 
 export default connect(
   state => ({
+    config: state.config
   }),
   {
   }

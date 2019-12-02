@@ -19,6 +19,9 @@ let authRequired = (req) => {
   let path = req.url;
   path = path.replace('/api/v1/','');
 
+  if(path.startsWith('file/verify'))
+    return false;
+
   return !(freeRoutes.find(r => path.match(`^${r}$`)));
 };
 

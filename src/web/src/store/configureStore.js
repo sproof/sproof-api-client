@@ -32,7 +32,7 @@ export default function configureStore(initialState) {
   const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['i18n','notification', 'search', 'form', 'log', 'profile', 'activity']
+    blacklist: ['i18n','notification','config', 'search', 'form', 'log', 'profile', 'activity']
   };
 
   const persistedReducer = persistReducer(persistConfig, rootReducer);

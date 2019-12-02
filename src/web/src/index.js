@@ -9,9 +9,9 @@ import configureStore from './store/configureStore';
 import {Sproof} from 'js-sproof-client';
 
 import {HashRouter, Route, Switch} from 'react-router-dom';
-import indexRoutes from './routes/index';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import theme from './style/theme'
+import MainComponent from './MainComponent'
 
 import {getHost, getWsHost} from './env'
 
@@ -34,15 +34,7 @@ window.onload = () => {
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <MuiThemeProvider theme={ createMuiTheme(theme)}>
-        <HashRouter>
-          <Switch>
-            {indexRoutes.map((prop, key) => {
-              return <Route path={prop.path} component={prop.component} key={key} />;
-            })}
-          </Switch>
-        </HashRouter>
-      </MuiThemeProvider>
+      <MainComponent/>
     </PersistGate>
 
   </Provider>,
