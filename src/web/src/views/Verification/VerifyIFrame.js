@@ -37,8 +37,6 @@ class VerifyIFrame extends Component{
       btnFontColor: this.getParam(params, 'btnFontColor')
     });
 
-
-
   }
 
   render() {

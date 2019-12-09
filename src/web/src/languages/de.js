@@ -36,7 +36,7 @@ export default {
       issuedBy : "Ausgestellt von",
       revokedBy : "Widerufen von",
       documentPendingMode: 'In Bearbeitung',
-      pendingAdditionalText : 'Ihr Dokment ist dem sproof Netzwerk bereits bekannt, aber noch nicht digital unterschrieben. Bitte prüfen Sie ihr Dokument später nocheinmal.',
+      pendingAdditionalText : 'Ihr Dokment ist dem sproof Netzwerk bereits bekannt, aber noch nicht digital unterschrieben. Bitte prüfen Sie ihr Dokument später noch einmal.',
       scheduleNextCommit: 'Ihr Dokument wird digital unterschieben: ',
       existsByNotConfirmedHeader: 'Ihr Dokument ist registriert, aber nicht bestätigt.',
       existsByNotConfirmedText: "Dieses Dokument wurde im sproof Netzwerk registriert. Der Inhaber dieser Website hat aber die Identiät des Aussteller noch nicht bestätigt. Klicken Sie auf den Link um mehr informationen zu diesem Dokument zu erhalten.",

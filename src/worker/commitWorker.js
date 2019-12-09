@@ -22,8 +22,8 @@ class CommitWorker {
   run(){
     this.commit((err, res) => {
       if (err) console.log(err);
+      setTimeout(() => this.startTimer(), 3000);
     });
-    process.nextTick (() => this.startTimer());
   }
 
   getNextCommit(type){
