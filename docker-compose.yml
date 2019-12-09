@@ -1,4 +1,4 @@
-  version: '2'
+version: '2'
 
 services:
   sproof-api-client:
@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-#    command: sh ./scripts/start.sh
+    #command: sh ./scripts/start.sh
     command: sh ./scripts/buildUIAndStart.sh
     volumes:
       - ./data:/usr/src/sproof-api-client/data

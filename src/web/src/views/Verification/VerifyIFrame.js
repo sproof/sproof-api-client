@@ -30,7 +30,6 @@ class VerifyIFrame extends Component{
     this.state = {params}
 
 
-    console.log('aa', params)
     props.setUIStyle({
       profile: this.getParam(params, 'profile'),
       color: this.getParam(params, 'color'),
