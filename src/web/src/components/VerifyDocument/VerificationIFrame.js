@@ -328,7 +328,7 @@ class Upload extends Component{
                     justify="flex-end"
                     alignItems="center">
                 <a href={'https://www.sproof.io'} target={'_blank'}>
-                <Grid item> <img style={{paddingRight: '8px'}} height={'40px'} src={'sproof_logo.svg'} alt={'sproof logo'}/> </Grid>
+                <Grid item> <img style={{paddingRight: '8px'}} height={'40px'} src={this.props.config.partner ? `https://sproof.io/images/${this.props.config.partner}.svg` : 'sproof_logo.svg'} alt={'sproof logo'}/> </Grid>
                 </a>
 
               </Grid>
