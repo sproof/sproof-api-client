@@ -3,7 +3,6 @@
 .gitignore
 README.md
 Dockerfile
-dist
 **/node_modules/*
 **/node_modules
 **node_modules
@@ -12,5 +11,3 @@ dist
 # To prevent storing dev/temporary container data
 *.csv
 /tmp/*
-
-./dist

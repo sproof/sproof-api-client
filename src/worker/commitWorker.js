@@ -15,8 +15,13 @@ class CommitWorker {
 
   startTimer(){
     let secondsToNextCommit = this.getNextCommit();
-    console.info('Next commit is scheduled in ' + moment.duration(secondsToNextCommit, "seconds").humanize());
-    setTimeout(() => this.run(), secondsToNextCommit*1000);
+    if (this.master.config.sproof.credentials.sproofCode != 'YOUR SPROOF CODE'){
+      console.info('Next commit is scheduled in ' + moment.duration(secondsToNextCommit, "seconds").humanize());
+      setTimeout(() => this.run(), secondsToNextCommit*1000);
+    }else{
+      console.info('Please add a sproof code to enable an automatic commit')
+    }
+
   }
 
   run(){

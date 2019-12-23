@@ -13,10 +13,11 @@ class KeepAlive {
 
     let nextCommit = moment().unix() + secondsToNextCommit;
     nextCommit = nextCommit.toFixed(0)
-    this.master.sproof.api.sproofClientKeepAlive({nextCommit, chainId: this.master.config.sproof.chainId}, (err,res) =>{
-      if (err) console.error("Could not send keep alive message: " + JSON.stringify(err));
-      else console.log('Send keep alive')
-    });
+    if (this.master.config.sproof.credentials.sproofCode != 'YOUR SPROOF CODE')
+      this.master.sproof.api.sproofClientKeepAlive({nextCommit, chainId: this.master.config.sproof.chainId}, (err,res) =>{
+        if (err) console.error("Could not send keep alive message: " + JSON.stringify(err));
+        else console.log('Send keep alive')
+      });
   }
 }
 module.exports = KeepAlive;

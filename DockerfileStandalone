@@ -18,7 +18,12 @@ COPY package.json ./package.json
 
 COPY src ./src
 
+COPY data/exampleConfig.js ./data/config.js
+
+COPY dist ./dist
+
 # install npm packages
 RUN npm install
+
 
 EXPOSE 6001
