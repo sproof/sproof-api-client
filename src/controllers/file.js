@@ -25,9 +25,11 @@ exports.register = async (req, res, next) => {
   let name = req.query.name;
   let publish = req.query.public === 'true';
 
-  let validFrom = req.query.validFrom;
-  let validUntil = req.query.validUntil;
+  let validFrom = Number.parseInt(req.query.validFrom);
+  let validUntil = Number.parseInt(req.query.validUntil);
 
+  validFrom = Number.isNaN(validFrom) ? undefined : validFrom;
+  validUntil = Number.isNaN(validUntil) ? undefined : validUntil;
 
   let locationHash;
 
@@ -45,7 +47,7 @@ exports.register = async (req, res, next) => {
     documentHash,
     locationHash,
     validFrom,
-    validUntil
+    validUntil,
     name});
 
   let event = sproof.registerDocument(reg);
