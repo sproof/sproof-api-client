@@ -25,6 +25,9 @@ exports.register = async (req, res, next) => {
   let name = req.query.name;
   let publish = req.query.public === 'true';
 
+  let validFrom = req.query.validFrom;
+  let validUntil = req.query.validUntil;
+
 
   let locationHash;
 
@@ -38,7 +41,12 @@ exports.register = async (req, res, next) => {
 
   let documentHash = sproof.getHash(file);
 
-  let reg = new Registration({documentHash, locationHash, name});
+  let reg = new Registration({
+    documentHash,
+    locationHash,
+    validFrom,
+    validUntil
+    name});
 
   let event = sproof.registerDocument(reg);
 
