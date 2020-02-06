@@ -31,6 +31,19 @@ exports.register = async (req, res, next) => {
   validFrom = Number.isNaN(validFrom) ? undefined : validFrom;
   validUntil = Number.isNaN(validUntil) ? undefined : validUntil;
 
+  let tags = undefined;
+
+  if (req.query.tags) {
+    tags = req.query.tags.split(',')
+    tags = tags.map(t => {
+      t = t.replace(/[^a-zA-Z0-9\s]+/g, '');
+      t = t.replace(/\s/g, "");
+      return t;
+    });
+
+    tags = tags.filter(t => t != "")
+
+  }
   let locationHash;
 
   if (publish){
@@ -48,6 +61,7 @@ exports.register = async (req, res, next) => {
     locationHash,
     validFrom,
     validUntil,
+    tags,
     name});
 
   let event = sproof.registerDocument(reg);
