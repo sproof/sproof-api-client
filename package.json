@@ -19,7 +19,7 @@
     "express-fileupload": "^1.1.5",
     "file-loader": "^4.2.0",
     "http-proxy": "^1.18.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "2.25.1",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.0",
