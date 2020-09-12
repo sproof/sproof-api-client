@@ -22,7 +22,7 @@
     "lodash": "^4.17.15",
     "moment": "2.25.1",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "request": "^2.88.2",
     "serve-favicon": "^2.5.0",
     "js-sproof-client": "1.0.37",
